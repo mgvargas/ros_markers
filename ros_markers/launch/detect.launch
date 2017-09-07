@@ -1,14 +1,14 @@
 <launch>
 
   <!-- Sets the image source. -->
-  <arg name="image_topic" default="/camera/image_raw" />
+  <arg name="image_topic" default="/kinect2_head/hd/image_color" />
   <remap from="image" to="$(arg image_topic)" />
-  
+
   <!-- Defines which and where are the markers in the environment. The sample
     file (markers_configuration_sample.yml) provides complete documentation.
     -->
   <arg name="markers_configuration" 
-    default="$(find ros_markers)/config/markers_configuration_sample.yml" />
+    default="$(find iai_markers_tracking)/config/markers_configuration.yml" />
   
   <!-- Sets whether or not to ignore markers not included in the 
 	configuration file.    -->
@@ -34,6 +34,8 @@
     <param name="default_marker_size" type="double" value="$(arg default_marker_size)" />
     <param name="gain" type="double" value="$(arg gain)" />
     <param name="persistence" type="int" value="$(arg gain)" />
+    <remap from="/tf" to="~/tf"/>
+
   </node>
 
 </launch>

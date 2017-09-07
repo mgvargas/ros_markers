@@ -60,6 +60,7 @@ void ChilitagsDetector::setROSTransform(Matx44d trans, tf::Transform& transform)
 void ChilitagsDetector::findMarkers(const sensor_msgs::ImageConstPtr& msg, 
                                     const sensor_msgs::CameraInfoConstPtr& camerainfo)
 {
+    ROS_WARN("imageCB");
     // updating the camera model is cheap if not modified
     cameramodel.fromCameraInfo(camerainfo);
     // publishing uncalibrated images? -> return (according to CameraInfo message documentation,
