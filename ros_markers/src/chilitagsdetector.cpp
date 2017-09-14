@@ -107,8 +107,8 @@ void ChilitagsDetector::findMarkers(const sensor_msgs::ImageConstPtr& msg,
                         transform);
 
         br.sendTransform(
-                tf::StampedTransform(transform, 
-                                        ros::Time::now() + ros::Duration(TRANSFORM_FUTURE_DATING), 
+                tf::StampedTransform(transform,  
+													 msg->header.stamp + ros::Duration(TRANSFORM_FUTURE_DATING),
                                         cameramodel.tfFrame(),
                                         kv.first));
     }
